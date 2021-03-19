@@ -1,0 +1,49 @@
+import os
+import unittest
+from POM_test.TestCase.Carings.TC_001 import *
+from POM_test.TestCase.Carings.TC_002 import *
+from POM_test.TestCase.Carings.TC_003 import *
+from POM_test.TestCase.Carings.TC_004 import *
+from POM_test.TestCase.Carings.TC_005 import *
+from POM_test.TestCase.Carings.TC_006 import *
+from POM_test.TestCase.Carings.TC_007 import *
+from POM_test.TestCase.Carings.TC_008 import *
+
+#     ทดสอบการเข้าใช้งานของ "ดูแล"
+
+def Totally_test_Carrings():
+
+    test_case_to_run = [TestCarring_1, TestCarring_2, TestCarring_3, TestCarring_4,
+                        TestCarring_5, TestCarring_6, TestCarring_7, TestCarring_8]
+
+    loader = unittest.TestLoader()
+
+    suites_list = []
+    for test_case in test_case_to_run:
+        suite = loader.loadTestsFromTestCase(test_case)
+        suites_list.append(suite)
+
+    big_suite = unittest.TestSuite(suites_list)
+
+    runner = unittest.TextTestRunner()
+    results = runner.run(big_suite)
+
+    # ...
+
+
+if __name__ == '__main__':
+    Totally_test_Carrings()
+
+
+
+
+# with open("C:/Users/voraw/Desktop/Working/Programing & Algorithms/Pytons/Learning/Selenium_Python/POM_test/TestCase/Carings/Carring") as f:
+#     for line in f:
+#         line = line.strip("\n")
+#
+#         directory = 'C:/Users/voraw/Desktop/Working/Programing & Algorithms/Pytons/Learning/Selenium_Python/POM_test/TestCase/Carings/'+line
+#         for files in os.walk(directory):
+#             for file in files:
+#                 print(directory)
+
+
